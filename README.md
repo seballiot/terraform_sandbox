@@ -4,7 +4,7 @@ A Terraform configuration using LocalStack to simulate AWS services locally.
 
 ### Project Structure
 - `main.tf` : Terraform configuration for AWS resources
-- `docker-compose.yml` : configures LocalStack to run S3 locally
+- `docker-compose.yml` : configures LocalStack to run AWS services locally
 
 ### Requirements
 
@@ -29,12 +29,14 @@ terraform plan
 terraform apply -auto-approve
 ```
 
-- Check S3 bucket existence
+- Check ressources existence
 ```
 aws --endpoint-url=http://localhost:4566 s3 ls
+aws --endpoint-url=http://localhost:4566 dynamodb list-tables
+aws --endpoint-url=http://localhost:4566 dynamodb scan --table-name my-test-table
 ```
 
 ### Clean
 ```
-terraform destroy && docker-compose down
+terraform destroy -auto-approve && docker-compose down
 ```
