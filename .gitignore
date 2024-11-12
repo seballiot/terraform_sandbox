@@ -5,4 +5,5 @@ terraform.tfstate.backup
 
 localstack/
 
+*.zip
 .DS_Store

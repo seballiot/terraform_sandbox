@@ -32,6 +32,20 @@ aws --endpoint-url=http://localhost:4566 dynamodb list-tables
 aws --endpoint-url=http://localhost:4566 dynamodb scan --table-name my-test-table
 ```
 
+- Lambda func testing
+```
+payload=`echo '{"a": 1}' | openssl base64`
+aws --endpoint-url=http://localhost:4566 lambda invoke \
+    --log-type Tail \
+    --function-name testLambda \
+    --payload "$payload" \
+    --cli-binary-format raw-in-base64-out /dev/stdout
+```
+- Watch logs
+```
+aws --endpoint-url=http://localhost:4566 logs tail /aws/lambda/testLambda --follow
+```
+
 ### Clean
 ```
 terraform destroy -auto-approve && docker-compose down

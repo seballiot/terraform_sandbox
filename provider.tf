@@ -20,6 +20,7 @@ provider "aws" {
   endpoints {
     s3       = "http://s3.localhost.localstack.cloud:4566"
     dynamodb = "http://localhost:4566"
+    lambda   = "http://localhost:4566"
   }
 
   default_tags {
