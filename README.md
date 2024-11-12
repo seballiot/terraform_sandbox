@@ -2,15 +2,11 @@
 
 A Terraform configuration using LocalStack to simulate AWS services locally.
 
-### Project Structure
-- `main.tf` : Terraform configuration for AWS resources
-- `docker-compose.yml` : configures LocalStack to run AWS services locally
-
 ### Requirements
 
-- Docker
-- `terraform` CLI
-- `aws` CLI
+- docker
+- terraform cli
+- aws cli
 
 Note : the *access_key* and *secret_key* in provider are set to fake values because of LocalStack.
 
